@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "49349152-e3a3-4a35-b9d4-d7da5be6e364",
+		"name": "Vendor Management System",
+		"description": "Vendor management system is used to track purchase orders with its vendor details. This system helps us to save these details in structual way.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31961153"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"omkar\",\r\n    \"password\":\"omkar@1234\",\r\n    \"first_name\":\"Omkar\",\r\n    \"last_name\":\"Sutar\",\r\n    \"email\":\"omkarsutar1255@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"signup"
+							]
+						},
+						"description": "**Create a new user account.**"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"omkar\",\r\n    \"password\":\"omkar@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "**Authenticate and log in a user.**\n\nThis will give access and refresh token in response.\n\nNote: Use access token for other all requests"
+					},
+					"response": []
+				}
+			],
+			"description": "**Login Functionality**"
+		},
+		{
+			"name": "Vendors",
+			"item": [
+				{
+					"name": "Create Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTgzODE3LCJpYXQiOjE3MDE1NzY2MTcsImp0aSI6IjA5MDc4MTQxYWNlOTQxZWI5N2E3N2U1MDg3NTVlM2UzIiwidXNlcl9pZCI6Im9ta2FyIn0.58utnGVjRPtNP7wkVJxKeczwcoogJs1mJWoFT1Mac4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Microsoft\",\r\n    \"contact_details\": 90134345,\r\n    \"address\": \"Cleveland, USA\",\r\n    \"vendor_code\": \"MI68\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors"
+							]
+						},
+						"description": "Register new vendor details in system."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vendors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTM3OTk5LCJpYXQiOjE3MDE1MzA3OTksImp0aSI6IjAzNTQ0MTYzYTcxZDQyMGE5NTQzYmY3YTlmNmMxNDYzIiwidXNlcl9pZCI6Imtha2FzbyJ9.komTzRAGxuRlPKQ_PHKLOhT43Hqwl0YsaeZ7GgwmCYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors"
+							]
+						},
+						"description": "Retrieve all vendors details."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vendor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNjk2ODY3LCJpYXQiOjE3MDE2ODk2NjcsImp0aSI6IjgwMzFiMzk0ZDI5NzRkZWZhOGZlYjdiZDA0MTlkN2Y2IiwidXNlcl9pZCI6Im9ta2FyIn0.mYVJpJuUhyXyKfKEZukzgyU-SVSqO-LdKEXeh_9Em28",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/MI67",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"MI67"
+							]
+						},
+						"description": "Retrieve details of particular Vendor using its Vendor Code  \nNote: Replace vendor code in last"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTgzODE3LCJpYXQiOjE3MDE1NzY2MTcsImp0aSI6IjA5MDc4MTQxYWNlOTQxZWI5N2E3N2U1MDg3NTVlM2UzIiwidXNlcl9pZCI6Im9ta2FyIn0.58utnGVjRPtNP7wkVJxKeczwcoogJs1mJWoFT1Mac4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Microsoft\",\r\n    \"contact_details\": 987654321,\r\n    \"address\": \"Los Angles, USA\",\r\n    \"created_by\": 8,\r\n    \"vendor_code\": \"MI67\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/MI67",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"MI67"
+							]
+						},
+						"description": "Update Some Details of Vendors"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTM5NDgxLCJpYXQiOjE3MDE1MzIyODEsImp0aSI6ImQ1ZDY4MzJhMTNiMDQxNGQ5ZTdhNmExODY1YmYwMGVlIiwidXNlcl9pZCI6Imtha2FzbyJ9.Y5sKTeTSn4O5Pz8m7IJMK_AmahVomDMz4kQ1MnRLzg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/AI55",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"AI55"
+							]
+						},
+						"description": "Delete vendor"
+					},
+					"response": []
+				}
+			],
+			"description": "Vendor Creation and modification functionality"
+		},
+		{
+			"name": "Purchase Orders",
+			"item": [
+				{
+					"name": "Create Purchase order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTkxMDQyLCJpYXQiOjE3MDE1ODM4NDIsImp0aSI6IjhhZjU2ZTJhOGRkNTRmNzQ5YTM1NzZiNTA4YWYzYzRhIiwidXNlcl9pZCI6Im9ta2FyIn0.UL7XcoibWWyKPAHr0t67XQpo0hKZvpHgDFird_KT2bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_name\": \"Microsoft\",\r\n    \"items\": {\r\n        \"Pen\": 6\r\n    },\r\n    \"quantity\": 7,\r\n    \"delivery_date\": \"2025-04-02T23:13:59+05:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders"
+							]
+						},
+						"description": "Creation of Purchase orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Purchase orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNjk2ODY3LCJpYXQiOjE3MDE2ODk2NjcsImp0aSI6IjgwMzFiMzk0ZDI5NzRkZWZhOGZlYjdiZDA0MTlkN2Y2IiwidXNlcl9pZCI6Im9ta2FyIn0.mYVJpJuUhyXyKfKEZukzgyU-SVSqO-LdKEXeh_9Em28",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders"
+							]
+						},
+						"description": "Retrieve all Puchase orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Purchase order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTgzODE3LCJpYXQiOjE3MDE1NzY2MTcsImp0aSI6IjA5MDc4MTQxYWNlOTQxZWI5N2E3N2U1MDg3NTVlM2UzIiwidXNlcl9pZCI6Im9ta2FyIn0.58utnGVjRPtNP7wkVJxKeczwcoogJs1mJWoFT1Mac4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/MI67-20231203-0001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"MI67-20231203-0001"
+							]
+						},
+						"description": "Retrieve particular purchase order using purchase order number\n\nNote: Use PO number in last"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Purchase order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTkxMDQyLCJpYXQiOjE3MDE1ODM4NDIsImp0aSI6IjhhZjU2ZTJhOGRkNTRmNzQ5YTM1NzZiNTA4YWYzYzRhIiwidXNlcl9pZCI6Im9ta2FyIn0.UL7XcoibWWyKPAHr0t67XQpo0hKZvpHgDFird_KT2bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delivery_date\": \"2023-04-02T17:43:59\",\r\n    \"items\": {\r\n        \"Notebook\":10\r\n    },\r\n    \"quantity\": 444,\r\n    \"status\": \"Completed\",\r\n    \"quality_rating\": 7.6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/MI67-20231203-0004",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"MI67-20231203-0004"
+							]
+						},
+						"description": "Updation of Purchase orders using purchase order number\n\nNote: Use PO number in last"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Purchase order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTE1NDk0LCJpYXQiOjE3MDE1MTM2OTQsImp0aSI6IjE1ZjQxYzMzYThmYjQwMDZhZGE2NGI3NTE2NjA5MDgzIiwidXNlcl9pZCI6Imtha2FzbyJ9.eJsMlqXHPy0TIhGCgbr0VMOfI5flO1pJlCiin-Rzoyc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/ABCD213",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"ABCD213"
+							]
+						},
+						"description": "Deletion of Purchase order using purchase order number\n\nNote: Use PO number in last"
+					},
+					"response": []
+				}
+			],
+			"description": "Creation and Modifition in Purchase orders"
+		},
+		{
+			"name": "Other",
+			"item": [
+				{
+					"name": "Performance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNTkxMDQyLCJpYXQiOjE3MDE1ODM4NDIsImp0aSI6IjhhZjU2ZTJhOGRkNTRmNzQ5YTM1NzZiNTA4YWYzYzRhIiwidXNlcl9pZCI6Im9ta2FyIn0.UL7XcoibWWyKPAHr0t67XQpo0hKZvpHgDFird_KT2bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/MI67/performance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"MI67",
+								"performance"
+							]
+						},
+						"description": "Retrieve perfomance metric by vendor"
+					},
+					"response": []
+				},
+				{
+					"name": "Acknowledgement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE1MTU2MTU0LCJpYXQiOjE3MTUxNDg5NTQsImp0aSI6ImExMWZhZDA5NjFhNzQxYmU4ZDQwNDFjNTNkNjUwOWJhIiwidXNlcl9pZCI6Im5pdGlzaCJ9.XEPmaRFzMZCFZVsKJFM8r8JdyRUUqIyTqvg7lvJdPy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/P5/acknowledge",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"P5",
+								"acknowledge"
+							]
+						},
+						"description": "Acknowledgement of Purchase order by vendor"
+					},
+					"response": []
+				}
+			],
+			"description": "To retrieve performance metric details of Vendor  \nTo acknowledge purchase order by vendors"
+		}
+	]
+}
