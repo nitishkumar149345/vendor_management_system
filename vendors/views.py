@@ -199,36 +199,6 @@ class AcknowlodgeOrder(APIView):
             return Response(formatresponse("something went worng",str(e)), status=status.HTTP_400_BAD_REQUEST)
 
 
-
-
-
-
-# def compute_performance(vid):
-
-#     instances = PurchaseOrders.objects.filter(vendor = vid)
-#     completed_orders=0
-#     quality_rating=0
-#     no_orders=0
-
-#     for instance in instances:
-#         no_orders+=1
-#         if instance.status =='completed':
-#             completed_orders+=1
-#             quality_rating+= instance.quality_rating
-    
-#     fulfillment_rate= round(completed_orders/no_orders,2)
-#     print ('fulfillment_rate: ', fulfillment_rate)
-
-#     if completed_orders>0:
-#         vendor = Vendors.objects.get(pk=vid)
-#         avg_quality_rating= round(quality_rating/completed_orders,2)
-#         print ("avg_quality_rating: ",avg_quality_rating)
-#     else:
-#         print ('No completed orders for vendor')
-
-#     vendor.fulfillment_rate= fulfillment_rate
-#     vendor.quality_rating_avg= avg_quality_rating
-#     vendor.save()
             
     
 
